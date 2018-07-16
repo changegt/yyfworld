@@ -12,11 +12,14 @@
 			:collapse="isCollapse">
 		  	<el-submenu :index="item.path" v-for="item in barArr">
 			    <template slot="title">
-			      <i class="el-icon-location"></i>
+			      <i :class="item.icon"></i>
 			      <span slot="title">{{item.name}}</span>
 			    </template>
 			    <el-menu-item-group>
-			      <el-menu-item :index="list.path" v-for="list in item.sub">{{list.name}}</el-menu-item>
+			      <el-menu-item :index="list.path" :key="index" v-for="(list, index) in item.sub">
+              <i :class="list.icon"></i>
+              <span>{{list.name}}</span>
+            </el-menu-item>
 			    </el-menu-item-group>
 		  	</el-submenu>
 		</el-menu>
@@ -47,11 +50,28 @@
         	{
         		path: '/tools',
         		name: '工具体系',
+            icon: 'el-icon-location',
         		sub: [
-        			{ path: '/tools/sublime', name: 'sublime' },
-        			{ path: '/tools/xshell', name: 'xshell' }
+        			{ path: '/tools/sublime', name: 'sublime',icon: 'el-icon-caret-right' },
+        			{ path: '/tools/xshell', name: 'xshell',icon: 'el-icon-caret-right' }
         		]
-        	}
+        	},
+          {
+            path: '/prod',
+            name: '作品体系',
+            icon: 'el-icon-star-on',
+            sub: [
+              { path: '/prod/xmindmap', name: '思维导图',icon: 'el-icon-caret-right' }
+            ]
+          },
+          {
+            path: '/resource',
+            name: '资源体系',
+            icon: 'el-icon-picture',
+            sub: [
+              { path: '/resource/res-img', name: '图片资源',icon: 'el-icon-caret-right' }
+            ]
+          }
         ]
       };
     },

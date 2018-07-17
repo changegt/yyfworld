@@ -13,7 +13,7 @@
 	    	<div>
 	    		<el-upload
 				  	class="upload-demo"
-				  	action="https://jsonplaceholder.typicode.com/posts/"
+				  	action="https://oss-example.oss-cn-hangzhou.aliyuncs.com"
 				  	:on-preview="handlePreview"
 				  	:on-remove="handleRemove"
 				  	:file-list="fileList2"

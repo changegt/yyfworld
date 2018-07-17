@@ -2,8 +2,8 @@
 	<el-aside width="auto">
 		<el-menu 
 			:default-active="activePath" 
-			background-color="#545c64" 
-			active-text-color="#ffd04b"
+			background-color="#333744" 
+			active-text-color="#fff"
 			class="el-menu-vertical-demo" 
 			text-color="#fff"
 			router
@@ -38,41 +38,25 @@
   .el-menu{
   	min-height: 100%!important;
   }
+  .el-menu-item.is-active{
+    background-color: #00c1de!important;
+  }
+  .el-submenu__title:hover{
+    background-color: #00c1de!important;
+  }
+  .el-menu-item:hover{
+    background-color: #00c1de!important; 
+  }
 </style>
 
 <script>
+  import data from '@/data/catalog.config.js'
   export default {
   	name: 'left',
     data() {
       return {
         isCollapse: false,
-        barArr: [
-        	{
-        		path: '/tools',
-        		name: '工具体系',
-            icon: 'el-icon-location',
-        		sub: [
-        			{ path: '/tools/sublime', name: 'sublime',icon: 'el-icon-caret-right' },
-        			{ path: '/tools/xshell', name: 'xshell',icon: 'el-icon-caret-right' }
-        		]
-        	},
-          {
-            path: '/prod',
-            name: '作品体系',
-            icon: 'el-icon-star-on',
-            sub: [
-              { path: '/prod/xmindmap', name: '思维导图',icon: 'el-icon-caret-right' }
-            ]
-          },
-          {
-            path: '/resource',
-            name: '资源体系',
-            icon: 'el-icon-picture',
-            sub: [
-              { path: '/resource/res-img', name: '图片资源',icon: 'el-icon-caret-right' }
-            ]
-          }
-        ]
+        barArr: data.catalogLists
       };
     },
     computed: {

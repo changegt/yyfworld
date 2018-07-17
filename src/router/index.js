@@ -4,67 +4,58 @@ import store from '../store'
 
 Vue.use(vueRouter)
 
+import data from '@/data/catalog.config.js'
+
 import Index from '@/views/index.vue'
 import Login from '@/views/user/login.vue'
-
 import Tools from '@/views/tools/index.vue'
 import Sublime from '@/views/tools/tools-sublime.vue'
 import Xshell from '@/views/tools/tools-xshell.vue'
 import Xmindmap from '@/views/prod/prod-xmindmap.vue'
 import Resimg from '@/views/resource/res-img.vue'
+import TaskIndex from '@/views/task/task-index.vue'
+
+let components = {
+	Index : Index,
+	Login : Login,
+	Tools : Tools,
+	Sublime : Sublime,
+	Xshell : Xshell,
+	Xmindmap : Xmindmap,
+	Resimg : Resimg,
+	TaskIndex : TaskIndex,
+};
+
+
+//循环生成列表数据
+let routerObj = [{
+					path: '/',
+					name: 'index',
+					component: Index,
+				}];
+
+data.catalogLists.forEach((el, index) => {
+	let oData = {
+		path: el.path,
+		component: components['Index'],
+		redirect: el.sub[0].path,
+		meta: { title: el.sub[0].path, key: el.name},
+	};
+
+	oData.children = [];
+	el.sub.forEach((el2, index2) => {
+		oData.children.push({
+			path: el2.subpath,
+			meta: { title: el2.path, key: el2.name},
+			component: components[el2.componentname]
+		})
+	});
+
+	routerObj.push(oData)
+})
 
 const router = new vueRouter({
-	routes: [
-		{
-			path: '/',
-			name: 'index',
-			component: Index,
-		},
-		{
-			path: '/tools',
-			component: Index,
-			redirect: '/tools/sublime',
-			meta: { title: '/tools/sublime', key: '工具体系'},
-			children: [
-				{
-					path: 'sublime',
-					meta: { title: '/tools/sublime', key: 'sublime'},
-					component: Sublime
-				},
-				{
-					path: 'xshell',
-					meta: { title: '/tools/xshell', key: 'xshell'},
-					component: Xshell
-				},
-			]	
-		},
-		{
-			path: '/prod',
-			component: Index,
-			redirect: '/prod/xmindmap',
-			meta: { title: '/prod/xmindmap', key: '作品体系'},
-			children: [
-				{
-					path: 'xmindmap',
-					meta: { title: '/prod/xmindmap', key: '思维导图'},
-					component: Xmindmap
-				},
-			]
-		},
-		{
-			path: '/resource',
-			component: Index,
-			redirect: '/resource/res-img',
-			meta: { title: '/resource/res-img', key: '资源体系'},
-			children: [
-				{
-					path: 'res-img',
-					meta: { title: '/resource/res-img', key: '图片资源'},
-					component: Resimg
-				},
-			]
-		}
-	]
+	routes: routerObj
 })
 
 router.beforeEach((to, from, next) => {

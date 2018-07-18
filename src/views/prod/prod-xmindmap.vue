@@ -14,12 +14,12 @@
         	{
         		title: 'yyfworld建站思维导图',
         		name: '1',
-        		content: '<img src="https://yyf-world.oss-cn-beijing.aliyuncs.com/img/%E4%B8%AA%E4%BA%BA%E5%88%9B%E4%BD%9C%E5%B9%B3%E5%8F%B0.png" alt="">'
+        		content: '<img src="/src/assets/img/xmind/个人创作平台.png" alt="">'
         	},
         	{
         		title: 'js高级程序设计思维导图',
         		name: '2',
-        		content: ''
+        		content: '<img src="/src/assets/img/xmind/ES6%E3%80%90%E5%9F%BA%E7%A1%80%E5%8F%82%E8%80%83ryf.ES6%E3%80%91.png" alt="">'
         	}
         ]
       };
@@ -31,3 +31,5 @@
     }
   }
 </script>
+<style>
+</style>

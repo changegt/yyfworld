@@ -1,19 +1,19 @@
 export default {
 	state: {
-		title: '',
+		routepath: '',
 		breadcrumb: []
 	},
 	mutations: {
-		SET_TITLE (state, {title}) {
-			state.title = title;
+		SET_BARACTIVE (state, {routepath}) {
+			state.routepath = routepath;
 		},
 		SET_BREADCRUMB (state, {crumbArray}) {
 			state.breadcrumb = crumbArray;
 		}
 	},
 	actions: {
-		setTitle ({commit}, {title}) {
-			commit('SET_TITLE', {title});
+		setBarActive ({commit}, {routepath}) {
+			commit('SET_BARACTIVE', {routepath});
 		},
 
 		setBreadcrumb ({commit}, {obj}) {

@@ -10,13 +10,13 @@
 			@open="handleOpen" 
 			@close="handleClose" 
 			:collapse="isCollapse">
-		  	<el-submenu :index="item.path" v-for="item in barArr">
+		  	<el-submenu :index="item.path" v-for="item in barArr" :key="item.path">
 			    <template slot="title">
 			      <i :class="item.icon"></i>
 			      <span slot="title">{{item.name}}</span>
 			    </template>
 			    <el-menu-item-group>
-			      <el-menu-item :index="list.path" :key="index" v-for="(list, index) in item.sub">
+			      <el-menu-item :index="list.path" :key="index" v-for="(list, index) in item.sub" v-if="!list.of">
               <i :class="list.icon"></i>
               <span>{{list.name}}</span>
             </el-menu-item>
@@ -61,7 +61,7 @@
     },
     computed: {
       activePath () {
-        return this.$store.state.main.title || '';
+        return this.$store.state.main.routepath || '';
       }
     },
     mounted (){

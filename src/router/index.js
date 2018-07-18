@@ -13,16 +13,26 @@ import Sublime from '@/views/tools/tools-sublime.vue'
 import Xshell from '@/views/tools/tools-xshell.vue'
 import Xmindmap from '@/views/prod/prod-xmindmap.vue'
 import Resimg from '@/views/resource/res-img.vue'
+import ResCss from '@/views/resource/res-css.vue'
+import ResCssCommon from '@/views/resource/res-css-common.vue'
+
 import TaskIndex from '@/views/task/task-index.vue'
 
 let components = {
 	Index : Index,
 	Login : Login,
+//tools
 	Tools : Tools,
 	Sublime : Sublime,
 	Xshell : Xshell,
 	Xmindmap : Xmindmap,
+
+//res
 	Resimg : Resimg,
+	ResCss: ResCss,
+	ResCssCommon: ResCssCommon,
+
+//task
 	TaskIndex : TaskIndex,
 };
 
@@ -39,14 +49,14 @@ data.catalogLists.forEach((el, index) => {
 		path: el.path,
 		component: components['Index'],
 		redirect: el.sub[0].path,
-		meta: { title: el.sub[0].path, key: el.name},
+		meta: { routepath: el.sub[0].path, key: el.name},
 	};
 
 	oData.children = [];
 	el.sub.forEach((el2, index2) => {
 		oData.children.push({
 			path: el2.subpath,
-			meta: { title: el2.path, key: el2.name},
+			meta: { routepath: el2.path, key: el2.name, of: (el2.of || '')},
 			component: components[el2.componentname]
 		})
 	});
@@ -59,7 +69,7 @@ const router = new vueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-	store.dispatch('setTitle', {title: to.meta.title});
+	store.dispatch('setBarActive', {routepath: (!to.meta.of ? to.meta.routepath : to.meta.of) });
 	store.dispatch('setBreadcrumb', {obj: to.matched});
 	next()
 })

@@ -28,7 +28,9 @@ export default {
 		    name: '资源体系',
 		    icon: 'el-icon-picture',
 		    sub: [
-		      { path: '/resource/res-img', name: '图片资源',icon: 'el-icon-caret-right',subpath: 'res-img',componentname:'Resimg' }
+		      { path: '/resource/res-img', name: '图片资源',icon: 'el-icon-caret-right',subpath: 'res-img',componentname:'Resimg' },
+		      { path: '/resource/res-css', name: 'CSS资源',icon: 'el-icon-caret-right',subpath: 'res-css',componentname:'ResCss' },
+		      { path: '/resource/res-css-common', name: '通用CSS',icon: 'el-icon-caret-right',subpath: 'res-css-common',componentname:'ResCssCommon', of: '/resource/res-css'}
 		    ]
 	  	},
 	  	{
@@ -36,7 +38,7 @@ export default {
 		    name: '任务体系',
 		    icon: 'el-icon-picture',
 		    sub: [
-		      { path: '/task/index', name: '任务主页',icon: 'el-icon-caret-right',subpath: 'index',componentname:'TaskIndex' }
+		      { path: '/task/index', name: '任务主页',icon: 'el-icon-caret-right',subpath: 'index',componentname:'TaksIndex' }
 		    ]
 	  	}
   	]

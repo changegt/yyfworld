@@ -12,8 +12,15 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+import $ from 'jquery'
+Vue.prototype.$ = $
+
 // import '@/icons' // icon
 // import '@/permission' // permission control
+
+//css
+import '@/assets/css/reset-tb.css'
+import '@/assets/less/ystyle.less'
 
 Vue.use(ElementUI)
 

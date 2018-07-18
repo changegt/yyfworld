@@ -3,7 +3,7 @@
 		<el-header>
 			<el-breadcrumb separator-class="el-icon-arrow-right">
 				<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-				<el-breadcrumb-item v-for="list in getBreadcrumb" :to="{ path: list.title }">{{list.key}}</el-breadcrumb-item>
+				<el-breadcrumb-item v-for="list in getBreadcrumb" :key="list.key" :to="{ path: list.title }">{{list.key}}</el-breadcrumb-item>
 			</el-breadcrumb>
 		</el-header>
 		<div style="padding: 0 20px;flex: 1;">
@@ -31,9 +31,10 @@
     	flex-direction: column;
 		padding: 0;
 		.el-header{
-			border-bottom: solid 1px #ccc;
+			height: 40px!important;
+			border-bottom: solid 1px #eee;
 			.el-breadcrumb{
-				line-height: 60px;
+				line-height: 40px;
 			}
 		}
 	}

@@ -40,6 +40,14 @@ export default {
 		    sub: [
 		      { path: '/task/index', name: '任务主页',icon: 'el-icon-caret-right',subpath: 'index',componentname:'TaksIndex' }
 		    ]
+	  	},
+	  	{
+		    path: '/others',
+		    name: '其他',
+		    icon: 'el-icon-picture',
+		    sub: [
+		      { path: '/others/addPost', name: '添加帖子',icon: 'el-icon-caret-right',subpath: 'addPost',componentname:'addPost' }
+		    ]
 	  	}
   	]
 }

@@ -46,7 +46,8 @@ export default {
 		    name: '其他',
 		    icon: 'el-icon-picture',
 		    sub: [
-		      { path: '/others/addPost', name: '添加帖子',icon: 'el-icon-caret-right',subpath: 'addPost',componentname:'addPost' }
+		      { path: '/others/addPost', name: '添加帖子',icon: 'el-icon-caret-right',subpath: 'addPost',componentname:'addPost' },
+		      { path: '/others/postLists', name: '帖子列表',icon: 'el-icon-caret-right',subpath: 'postLists',componentname:'postLists' }
 		    ]
 	  	}
   	]

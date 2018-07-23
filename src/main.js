@@ -15,6 +15,9 @@ import store from './store'
 import $ from 'jquery'
 Vue.prototype.$ = $
 
+import jsonp from 'vue-jsonp'
+Vue.use(jsonp)
+
 // import '@/icons' // icon
 // import '@/permission' // permission control
 

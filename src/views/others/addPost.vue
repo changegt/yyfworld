@@ -10,6 +10,7 @@
 			<el-row>
 				<el-col :span="8">
 					<el-button type="primary" class="submit-btn mt20" @click="submit">提交文章</el-button>
+					<el-button type="primary" @click="get">获取文章</el-button>
 				</el-col>
 			</el-row>
 		</el-main>
@@ -42,6 +43,8 @@
 	 * ghMentions default=false 启用github@XXXX
 	 * openLinksInNewWindow default=false 默认在新窗口打开所有链接
 	 */
+	import {addPost,getPostLists} from '@/api/api_post.js';
+
 	export default {
 		name: 'addPost',
 		data () {
@@ -51,7 +54,29 @@
 		},
 		methods: {
 			submit () {
+				let val = this.mdVal, self = this;
+				addPost({
+					title: 'test',
+					content: val
+				}).then((res) => {
+					if(res.errorCode == 0){
+						alert('success')
+					}else{
+						alert(res.errorMsg);
+					}
+				})
+			},
 
+			get () {
+				getPostLists({
+					pid: 13
+				}).then((res) => {
+					if(res.errorCode == 0){
+						console.log(res.result);
+					}else{
+						alert(res.errorMsg);
+					}
+				})
 			}
 		},
 		computed: {

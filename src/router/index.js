@@ -19,6 +19,7 @@ import ResCssCommon from '@/views/resource/res-css-common.vue'
 import TaskIndex from '@/views/task/task-index.vue'
 
 import AddPost from '@/views/others/addPost.vue'
+import PostLists from '@/views/others/PostLists.vue'
 
 let components = {
 	Index : Index,
@@ -38,7 +39,8 @@ let components = {
 	TaskIndex : TaskIndex,
 
 //others
-	addPost : AddPost
+	addPost : AddPost,
+	postLists: PostLists
 };
 
 

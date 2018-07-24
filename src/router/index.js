@@ -20,6 +20,7 @@ import TaskIndex from '@/views/task/task-index.vue'
 
 import AddPost from '@/views/others/addPost.vue'
 import PostLists from '@/views/others/PostLists.vue'
+import Postpage from '@/views/others/Postpage.vue'
 
 let components = {
 	Index : Index,
@@ -40,7 +41,8 @@ let components = {
 
 //others
 	addPost : AddPost,
-	postLists: PostLists
+	postLists: PostLists,
+	postpage: Postpage,
 };
 
 

@@ -4,9 +4,13 @@
 	      :data="postLists"
 	      style="width: 100%">
 	      <el-table-column
-	        prop="title"
 	        label="标题"
 	        width="300">
+	        <template slot-scope="scope">
+	        	<router-link :to="{ path: '/others/postpage', query: { pid: scope.row.pid}}">
+	        		<span class="curp ml10">{{ scope.row.title }}</span>
+	        	</router-link>
+	      	</template>
 	      </el-table-column>
 	      <el-table-column
 	        prop="time"
@@ -28,7 +32,8 @@
 		name: 'postLists',
 		data () {
 			return {
-				postLists: []
+				postLists: [],
+				sourceData: []
 			};
 		},
 		mounted() {
@@ -39,6 +44,7 @@
 				let self = this;
 				getPostLists().then((res) => {
 					if(res.errorCode == 0){
+						self.sourceData = res.result.lists;
 						self.postLists = self.analysis(res.result.lists);
 					}else{
 						alert(res.errorMsg);
@@ -53,14 +59,12 @@
 						pid: arr[i].pid,
 						title: arr[i].p_title,
 						time: Utils.timeFormat(new Date(parseInt(arr[i].p_timestr))),
-						label: ''
+						label: '',
 					}
 				}
 
 				return targetArr;
 			},
-
-
 		},
 		computed: {
 			

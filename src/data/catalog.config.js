@@ -38,7 +38,7 @@ export default {
 		    name: '任务体系',
 		    icon: 'el-icon-picture',
 		    sub: [
-		      { path: '/task/index', name: '任务主页',icon: 'el-icon-caret-right',subpath: 'index',componentname:'TaksIndex' }
+		      { path: '/task/index', name: '任务主页',icon: 'el-icon-caret-right',subpath: 'index',componentname:'TaksIndex'}
 		    ]
 	  	},
 	  	{
@@ -47,7 +47,8 @@ export default {
 		    icon: 'el-icon-picture',
 		    sub: [
 		      { path: '/others/addPost', name: '添加帖子',icon: 'el-icon-caret-right',subpath: 'addPost',componentname:'addPost' },
-		      { path: '/others/postLists', name: '帖子列表',icon: 'el-icon-caret-right',subpath: 'postLists',componentname:'postLists' }
+		      { path: '/others/postLists', name: '帖子列表',icon: 'el-icon-caret-right',subpath: 'postLists',componentname:'postLists' },
+		      { path: '/others/postpage/', name: '帖子列表',icon: 'el-icon-caret-right',subpath: 'postpage',componentname:'postpage',of: '/others/postLists'},
 		    ]
 	  	}
   	]
